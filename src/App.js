@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import CommonComponent from './components/II/index'
 import ProxyState from './components/proxyState'
+import ImageComponentHOC from './components/proxyProps/ImageCompnent'
 
 class App extends React.Component {
   constructor() {
@@ -19,6 +20,7 @@ class App extends React.Component {
   }
   render() {
     return <div className="App">
+    <ImageComponentHOC imageUrl="https://gw.alipayobjects.com/mdn/iot_box_me/afts/img/A*C9PaS6eDCQAAAAAAAAAAAABkARQnAQ" title="Proxy代理"/>
     <CommonComponent loading={this.state.loading}/>
     <ProxyState />
   </div>
