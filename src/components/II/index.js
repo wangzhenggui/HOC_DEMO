@@ -8,17 +8,8 @@ class CommonComponent extends Component {
       name:'CommonComponent'
     }
   }
-  componentWillMount() {
-    console.log('普通组件--> componentWillMount')
-  }
-  componentDidMount() {
-    console.log('普通组件--> componentDidMount')
-  }
   render() {
-    console.log('普通组件--> render')
-    return <div>
-      我是正常显示组件
-    </div>
+    return <input value='123' />
   }
 }
 

@@ -1,16 +1,17 @@
 import React from 'react'
 const ProxyHoc = WrapperComponent => class extends WrapperComponent {
-  componentWillMount() {
-    console.log('HOC组件--> componentWillMount')
-  }
-  componentDidMount() {
-    console.log('HOC组件--> componentDidMount')
-  }
   render() {
-    console.log('HOC组件--> render')
     if (!this.props.loading) {
-      console.log(super.render())
-      return super.render() //　这里返回的是我们的FiberNode
+      const fiberNode = super.render() //　这里返回的是我们的FiberNode
+      console.log(fiberNode)
+      let newProps = {}
+      if(fiberNode && fiberNode.type === 'input') {
+        newProps = {
+          value: '456'
+        }
+      }
+      const props = Object.assign({},fiberNode.props,newProps) 
+      return React.cloneElement(fiberNode,props,fiberNode.props.children)
     } else {
       return <div> loading </div>    
     }
